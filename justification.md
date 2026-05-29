@@ -1,0 +1,3 @@
+## Final Verdict
+
+Response B is the clear winner here. Response A falls apart pretty quickly because `db.query()` gets called all over the place but the `db` module is nowhere to be found, not imported, not defined, nothing. The code simply will not run. On top of that, none of the async controllers bother with `try/catch`, so any database hiccup would just crash the server outright. Response B handles both of these properly. TypeScript also starts fading out in Response A once you get to the controllers, which feels off given how much care went into typing the middleware. Response B stays consistent all the way through and the code is just cleaner and easier to follow overall. It actually feels like something you could build on top of.
